@@ -1,1 +1,15 @@
-
+1) Describing Containers
+2) Comparing Containers to Virtual Machines
+3) Introduction to Kubernetes and OpenShift
+4) Kubernetes Features
+    - Service discovery and load balancing
+    - Horizontal scaling
+    - Self-healing
+    - Automated rollout
+    - Secrets and configuration management
+    - Operators
+5) Red Hat OpenShift Container Platform Features
+    - Developer workflow
+    - Routes
+    - Metrics and logging
+  
