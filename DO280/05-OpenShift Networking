@@ -1,0 +1,15 @@
+1) Introducing OpenShift Software-defined Networking
+2) Pod network
+3) Servie network
+4) Route network
+5) Machine network
+6) Using Services for Accessing Pods
+7) Discussing the DNS Operator
+8) Managing DNS Records for Services
+9) Introducing the Cluster Network Operator
+10) Exposing Applications for External Access
+11) Describing Methods for Managing Ingress Traffic
+12) Creating Routes
+13) Securing Routes
+14) Configuring Network Policies
+15) troubleshooting and real time scenarious
