@@ -1,0 +1,6 @@
+1) Configuring Identity Providers
+2) Describing OpenShift Users and Groups
+3) Introducing the Authentication Operator
+4) Introducing Identity Providers
+5) Managing Users with the HTPasswd Identity Provider
+6) Defining and Applying Permissions Using RBAC
