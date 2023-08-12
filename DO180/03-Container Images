@@ -1,0 +1,37 @@
+1) Container Registry
+  - podman login 
+  - podman search
+  - podman pull
+  - podman push
+  - podman inspect
+  - dockerhub.com
+  - quay.io
+  - regitry.redhat.com
+  - registry configuration file
+
+2) Image Management
+• Tagging image versions so that they map to product versions and updates.
+• Pullingimagesintoyoursystem.
+• Buildingimages.
+• Pushingimagestoanimagerepository.
+• Inspecting images to get metadata.
+• Removing images to recover storage space.
+
+3) Creating Images with Containerfiles
+  -  FROM
+  - WORKDIR
+  - COPY and ADD
+  - RUN
+  - ENTRYPOINTS
+  - CMD
+  - USER
+  - LABEL
+  - EXPOSE
+  - ENV
+  - VOLUME
+
+4) Container Images tagging 
+
+
+
+
