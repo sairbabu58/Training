@@ -1,0 +1,4 @@
+1) Container registry configuration
+2) Load your container images on container registry
+3) Deploy container using private or public registry
+4) Move container images from source to target machine
