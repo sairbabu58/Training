@@ -1,0 +1,6 @@
+1) Import images from registry to namespaces
+2) Deploy application using source to image s2i
+3) Application rollout stateggy 
+4) Deploy application using different process
+5) Job and cronjob deployment
+
