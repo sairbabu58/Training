@@ -48,3 +48,38 @@ $ podman run -itd --name demo-02 -p 8080:80 nginx
 $ curl localhost:8080
 
 $ podman inspect <container-id/name>
+$ podman exec -it <container-name> <shell>
+
+$ podman run nginx ls /bin
+$ podman exec <container-name> ls /bin
+$ podman exec <container-name> cat /etc/hostname
+
+
+Database container:
+$ podman search mysql
+$ podman pull mysql
+
+$ podman run -itd --name mysql -e MYSQL_USER=user1 -e MYSQL_PASSWORD=abc123 -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=redhat mysql 
+$ podman exec -it <container-name> bash
+  > mysql -uroot
+  > show databases
+  > use items;
+or
+$ install mysql cli 
+$ musql -u user1 -h <container-ip> -p items
+
+$ podman start <container-name>
+$ podman stop <container-name>
+$ podman pause <container-name>
+$ podman unpause <container-name>
+
+$ podman rm <container-name>
+$ podman rmi <container-id>
+
+$ podman rm --all --force
+$ podman rmi --all --force
+
+$ podman stop --all
+
+$ podman logs <container-name>
+$ podman history <container-image>
