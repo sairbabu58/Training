@@ -3,3 +3,27 @@
   - NFS data
   - Create volume
   - Attach volume
+
+
+Pratical:
+
+$ mkdir /data
+$ chmod 777 /data
+$ podman run -itd --name demo-01 -v /data:/data nginx
+$ podman exec <container-name>  ls /
+$ touch /data/file{01..10}
+$ podman exec <container-name>  ls /data
+
+
+$ podman volume ls
+$ podman volume create data-vol
+$ podman  volume ls
+$ podman run -its --name demo-vol --volume data-vol:/data nginx
+$ podman exec demo-vol touch /data/file{01..20}
+$ podman  inspect volume data-vol
+$ podman volume inspecr data-vol
+$ ls <above-path>
+
+$ podman 
+
+
