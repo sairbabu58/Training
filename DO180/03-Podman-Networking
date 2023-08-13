@@ -6,3 +6,8 @@
   - podman network rm
   - podman network prune
   - podman network connect
+
+
+Pratical:
+$ podman network ls
+$ podman network create net-01
