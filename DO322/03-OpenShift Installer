@@ -1,0 +1,21 @@
+1) OpenShift Installation Binary
+2) Creating Installer Configuration File
+3) Generating Kubernetes Manifests
+4) Generating Ignition Configuration Files
+5) Deploying OpenShift Cluster
+6) Monitoring OpenShift Installations
+7) Troubleshooting OpenShift Installations
+
+8) Bootstrap (Temporary Control Plane) Stage
+9) Production Control Plane stage
+10) OpenShift Cluster Health
+11) OpenShift Etcd Health
+12) OpenShift API and Console Health
+13) OpenShift Registry Health
+14) OpenShift Ingress Health
+15) OpenShift Dynamic Storage Provider Health
+16) OpenShift Application Build and Deployment Test
+17) OpenShift Cluster Network
+18) OpenShift Machine API
+19) Troubleshooting and real time scenarious
+
