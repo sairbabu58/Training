@@ -83,3 +83,6 @@ $ podman stop --all
 
 $ podman logs <container-name>
 $ podman history <container-image>
+
+$ podman port <container-name>
+$ podman port --all
