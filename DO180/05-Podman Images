@@ -35,3 +35,32 @@
 
 
 
+
+
+Pratical:
+
+registry.redhet.io
+docker.io
+
+
+$ cat /etc/containers/registries.conf
+
+#search registry URL path
+unqualified-search-registries == ['registry.redhat.io', 'docker.io']
+
+#Block registry
+[[registry]]
+location="docker.io"
+blocked=true
+
+--save--
+
+# Registry login
+
+$ podman login registry-name
+$ podman logout registry-name
+
+$ podman pull registry-name/image-name
+$ podman push registry-name/image name
+
+$
