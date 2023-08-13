@@ -1,0 +1,21 @@
+1) Adding Worker Nodes
+2) Discussing Node Scaling
+3) Discussing Ignition
+4) Discussing Ingress Load Balancing
+5) Adding Worker Nodes
+6) Creating Custom Machine Config Pools  
+  -  MachineConfig (MC)
+  - MachineConfigPool (MCP)
+7) Labeling Nodes
+8) Configuring Persistent Storage
+  - Static and dynamic volume
+  - Storage Classes
+  - Persistent Volume 
+  - Persistent Volume Claims
+  - Access mode
+  - Reclaiming policy
+  - File Storage
+  - Block Storage
+  - Object Storage
+9) Setting a Default Storage Class
+10 Troubleshooting and real time scenarious
