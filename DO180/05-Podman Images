@@ -134,3 +134,6 @@ CMD ["-D", "FOREGROUND"]
 VOLUME /data:/data
 
 --save--
+
+
+$ podman image tree <image-id/name>
