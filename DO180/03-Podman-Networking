@@ -7,7 +7,50 @@
   - podman network prune
   - podman network connect
 
+Network Type;
+- bridge
+- host
+- overlay
+- macvlan
+
 
 Pratical:
 $ podman network ls
 $ podman network create net-01
+
+
+
+
+
+$ podman run -its --name demo-01 --net none nginx
+
+
+
+$ podman network create -d bridge net-01
+$ podman network create -d host net-02
+
+$ podman network create -d bridge --subnet 192.168.0.0/24 --gateway 192.168.0.1 my-bridge
+$ podman run -itd --name demo-01 --net my-bridge nginx
+$ podman exec demo-01 hostname -i
+$ ping 192.168.0.2
+
+
+$ podman stop server1
+$ podman network connect my-bridge server1
+$ podman start server1
+$ podman exec server1 hostname -i
+$ podman stop server1
+$ podman network disconnect my-bridge server1
+$ podman start server1
+$ podman exec server1 hostname -i
+
+$ podman network rm <name>
+$ podman network prune 
+
+
+$ podman run -itd --name server2 --net my-bridge --ip=192.168.0.100 nginx
+$ podman stop server3
+$ podman network connect my-bridge --ip=192.168.0.150 server3
+$ podman start server3
+
+
