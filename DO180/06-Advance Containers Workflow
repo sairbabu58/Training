@@ -4,3 +4,37 @@
 4) Deploy container using private or public registry
 5) Move container images from source to target machine
 6) Container snapshot/commit
+
+
+
+
+
+
+Pratical:
+
+
+
+
+
+
+
+
+$ podman image ls
+$ podman tag <image-id> <new-tag-name>
+$ podman tag <image-id> my-registry.example.com/my-new-image:v1.0.0
+
+
+
+$ podman save -o my-bundle-images.tar image-1 image-2 image-3
+$ podman rmi --all
+$ podman load -i my-bundle.tar
+$ podman image ls
+
+
+$ podman exec  my-exesting-container touch /tmp/file{01..10}
+$ podman commit my-new-container my-exesting-container
+$ podman image ls 
+$ podman tag existing-name new-name:v1.0.0
+
+$ 
+
