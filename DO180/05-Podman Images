@@ -63,4 +63,74 @@ $ podman logout registry-name
 $ podman pull registry-name/image-name
 $ podman push registry-name/image name
 
-$
+
+#ContainerFile
+
+FROM: Sets the base image for the resulting container image. Takes the name of the base image as an argument.
+WORKDIR: Sets the current working directory within the container. Instructions that follow the WORKDIR instruction run within this directory.
+COPY: Copy files from the build host into the file system of the resulting container image. Relative paths use the host current working directory, known as the build context. Both instructions use the working directory within the container as defined by the WORKDIR instruction.
+ADD:  instruction adds the following functionality:
+• Copying files from URLs.
+• Unpacking tar archives in the destination image.
+Because the ADD instruction adds functionality that might not be obvious, developers tend to prefer the COPY instruction for copying local files into the container image.
+RUN: Runs a command in the container and commits the resulting state of the container to a new layer within the image.
+ENTRYPOINT: Sets the executable to run when the container is started.
+CMD: Runs a command when the container is started. This command is passed to the executable defined by ENTRYPOINT. Base images define a default ENTRYPOINT, which is usually a shell executable, such as Bash.
+USER: Changes the active user within the container. Instructions that follow the USER instruction run as this user, including the CMD instruction. It is a good practice to define a different user other than root for security reasons.
+EXPOSE: Adds a port to the image metadata indicating that an application within the container binds to this port. This instruction does not bind the port on the host and is for documentation purposes.
+VOLUME: Defines where to store data outside of the container. The value configures the path where Podman mounts persistent volume inside of the container. You can define more than one path to create multiple volumes.
+
+Example-1:
+# This is a comment line
+FROM        registry.redhat.io/ubi8/ubi:8.6
+LABEL       description="This is a custom httpd container image"
+RUN         yum install -y httpd
+EXPOSE      80
+ENV         LogLevel "info"
+ADD         http://someserver.com/filename.pdf /var/www/html
+COPY        ./src/   /var/www/html/
+USER        apache
+ENTRYPOINT  ["/usr/sbin/httpd"]
+CMD         ["-D", "FOREGROUND"]
+
+
+$ mkdir podman
+$ echo 'hello world' >> podman/index.htlm
+$ vi Containerfile
+   
+FROM docker.io/centos
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+RUN yum -y  install httpd
+COPY index.html /var/www/html/
+EXPOSE 80
+ENTRYPOINT ["/usr/sbin/httpd"]
+CMD ["-D", "FOREGROUND"]
+
+$ podman build -t my-first-image:v1.00 .
+$podman image ls
+$ podman run -itd --name server-1 -p 8080:80 my-first-image
+$ curl localhost:8080
+
+
+Example-2:
+
+FROM docker.io/centos
+
+LABEL org.opencontainers.image.authors="Your Name"
+ENV SERVER_PORT=80
+ENV PATH=/var/www/html
+
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+RUN yum -y  install httpd
+
+COPY index.html /var/www/html/
+
+EXPOSE $SERVER_PORT
+WORKDIR $PATH
+ENTRYPOINT ["/usr/sbin/httpd"]
+CMD ["-D", "FOREGROUND"]
+VOLUME /data:/data
+
+--save--
