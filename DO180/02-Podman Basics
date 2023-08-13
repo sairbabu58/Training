@@ -28,3 +28,23 @@
   - Podman rm
   - Podman run
 
+
+Pratical:
+Podman Installation:
+$ yum -y install epel-release
+$ yum clean all; yum repo list
+$ yum -y install podman
+
+$ podman version 
+$ podman -v
+
+$ podman search <image-name>
+$ podman pull <image-name>
+$ podman images
+$ podman image ls
+$ podman run -itd --name demo-01 nginx
+$ podman ps --all
+$ podman run -itd --name demo-02 -p 8080:80 nginx
+$ curl localhost:8080
+
+$ podman inspect <container-id/name>
