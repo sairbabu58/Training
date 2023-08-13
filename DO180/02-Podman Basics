@@ -86,6 +86,8 @@ $ podman stop --all
 $ podman stop --time=10
 
 $ podman logs <container-name>
+$ podman logs -f <container-name>
+$ podman logs --tail 10 <container-name>
 $ podman history <container-image>
 
 $ podman port <container-name>
@@ -97,4 +99,7 @@ Copy files In and Out of container:
 $ podman cp <container-name/ID>:/tmp/file .
 $ podman cp file.conf <container-name/ID>:/tmp/
 $ podman cp container-1:/tmp/file1 container-2:/tmp/
+
+
+$ podman top <container name>
 
