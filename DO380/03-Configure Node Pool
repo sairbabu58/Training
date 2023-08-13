@@ -7,15 +7,4 @@
   -  MachineConfig (MC)
   - MachineConfigPool (MCP)
 7) Labeling Nodes
-8) Configuring Persistent Storage
-  - Static and dynamic volume
-  - Storage Classes
-  - Persistent Volume 
-  - Persistent Volume Claims
-  - Access mode
-  - Reclaiming policy
-  - File Storage
-  - Block Storage
-  - Object Storage
-9) Setting a Default Storage Class
-10 Troubleshooting and real time scenarious
+8) Troubleshooting and real time scenarious
