@@ -12,6 +12,16 @@
 
 Pratical:
 
+$ create a account on docker.io
+$ podman login docker.io
+  username:
+  password:
+
+$ podman image ls
+$ podman tag <image> docker.io/saibabu/do180:v1.0.0
+$ podman image ls
+$ podman push docker.io/saibabu/do180:v1.0.0 --tls-verify=false
+$ check the images from browser docker.io web-ui
 
 
 
