@@ -22,11 +22,8 @@ $ podman tag <image> docker.io/saibabu/do180:v1.0.0
 $ podman image ls
 $ podman push docker.io/saibabu/do180:v1.0.0 --tls-verify=false
 $ check the images from browser docker.io web-ui
-
-
-
-
-
+$ podman rmi --all
+$ podman pull docker.io/saibabu/do180:v1.0.0
 
 
 $ podman image ls
@@ -45,6 +42,4 @@ $ podman exec  my-exesting-container touch /tmp/file{01..10}
 $ podman commit my-new-container my-exesting-container
 $ podman image ls 
 $ podman tag existing-name new-name:v1.0.0
-
-$ 
 
