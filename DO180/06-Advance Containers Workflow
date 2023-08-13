@@ -6,10 +6,6 @@
 6) Container snapshot/commit
 
 
-
-
-
-
 Pratical:
 
 $ create a account on docker.io
@@ -24,6 +20,7 @@ $ podman push docker.io/saibabu/do180:v1.0.0 --tls-verify=false
 $ check the images from browser docker.io web-ui
 $ podman rmi --all
 $ podman pull docker.io/saibabu/do180:v1.0.0
+$ podman run -itd --name demo-02 docker.io/saibabu/do180:v1.0.0
 
 
 $ podman image ls
