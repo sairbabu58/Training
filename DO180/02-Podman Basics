@@ -30,13 +30,16 @@
 
 
 Pratical:
+
 Podman Installation:
+
 $ yum -y install epel-release
 $ yum clean all; yum repo list
 $ yum -y install podman
-
 $ podman version 
 $ podman -v
+
+Container hosting and manage:
 
 $ podman search <image-name>
 $ podman pull <image-name>
@@ -80,9 +83,18 @@ $ podman rm --all --force
 $ podman rmi --all --force
 
 $ podman stop --all
+$ podman stop --time=10
 
 $ podman logs <container-name>
 $ podman history <container-image>
 
 $ podman port <container-name>
 $ podman port --all
+
+
+Copy files In and Out of container:
+
+$ podman cp <container-name/ID>:/tmp/file .
+$ podman cp file.conf <container-name/ID>:/tmp/
+$ podman cp container-1:/tmp/file1 container-2:/tmp/
+
