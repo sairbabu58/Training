@@ -17,4 +17,18 @@
 
 
 14) Explaining OpenShift Installation Process
-15) 
+
+15) Describing OpenShift Installation Prerequisites
+16) Describing OpenShift DNS Prerequisites
+17) Describing OpenShift DHCP Prerequisites
+
+18) Describing OpenShift Installation Modes
+  - Connected 
+  - Disconnected
+
+19) Introducing Dconnected Installations
+20) Introducing Disconnected Installations
+
+
+
+
