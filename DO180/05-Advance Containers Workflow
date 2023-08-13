@@ -3,3 +3,4 @@
 3) Pull your container images from container registry
 4) Deploy container using private or public registry
 5) Move container images from source to target machine
+6) Container snapshot/commit
