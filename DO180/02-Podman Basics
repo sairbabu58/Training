@@ -73,6 +73,7 @@ $ musql -u user1 -h <container-ip> -p items
 
 $ podman start <container-name>
 $ podman stop <container-name>
+$ podman restart <container-name>
 $ podman pause <container-name>
 $ podman unpause <container-name>
 
