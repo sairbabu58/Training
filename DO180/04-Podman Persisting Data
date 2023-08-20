@@ -22,7 +22,7 @@ $ podman  volume ls
 $ podman run -its --name demo-vol --volume data-vol:/data nginx
 $ podman exec demo-vol touch /data/file{01..20}
 $ podman  inspect volume data-vol
-$ podman volume inspecr data-vol
+$ podman volume inspect data-vol
 $ ls <above-path>
 
 $  
