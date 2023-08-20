@@ -22,7 +22,7 @@ $ podman network create net-01
 
 
 
-$ podman run -its --name demo-01 --net none nginx
+$ podman run -itd --name demo-01 --net none nginx
 
 
 
