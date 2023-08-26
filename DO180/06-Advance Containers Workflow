@@ -36,7 +36,7 @@ $ podman image ls
 
 
 $ podman exec  my-exesting-container touch /tmp/file{01..10}
-$ podman commit my-new-container my-exesting-container
+$ podman commit  my-exesting-container my-new-container
 $ podman image ls 
 $ podman tag existing-name new-name:v1.0.0
 
