@@ -11,9 +11,9 @@
 
 2) Image Management
 • Tagging image versions so that they map to product versions and updates.
-• Pullingimagesintoyoursystem.
-• Buildingimages.
-• Pushingimagestoanimagerepository.
+• Pulling images into your system.
+• Building images.
+• Pushing image stoan image repository.
 • Inspecting images to get metadata.
 • Removing images to recover storage space.
 
