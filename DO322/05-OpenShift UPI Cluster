@@ -1,1 +1,99 @@
+Plan:
+=====
 
+1) service node:   192.168.56.100 service.ocp4.example.com [dns, dhcp, httpd, nfs]
+
+2) lb node:         192.168.56.101 lb.ocp4.example.com  [haproxy, KeepAlived]
+
+3) bootstrap node:  192.168.56.107 bootstrap.ocp4.example.com [temporally node]
+
+4) master0:         192.168.56.102 master0.ocp4.example.com 
+5) master1:         192.168.56.103 master1.ocp4.example.com 
+6) master2:         192.168.56.104 master2.ocp4.example.com 
+
+7) worker0:         192.168.56.105 worker0.ocp4.example.com 
+8) worker1:         192.168.56.106 worker1.ocp4.example.com 
+
+
+
+DNS Details:
+============
+
+service.ocp4.example.com
+lb.ocp4.example.com
+
+master0.ocp4.example.com 
+master1.ocp4.example.com 
+master2.ocp4.example.com 
+
+worker0.ocp4.example.com
+worker0.ocp4.example.com
+
+api.ocp4.example.com
+api-int.ocp4.example.com
+*.apps.api.ocp4.example.com
+
+
+Configure DNS server using DNSMASQ:
+===================================
+
+$ yum -y install dnsmasq
+$ systemctl start dnsmasq
+$ systemctl enable dnsmasq
+
+$ > /etc/dnsmasq.conf
+
+$ vi /etc/dnsmasq.conf
+
+domain-needed 
+bogus-priv
+server=8.8.8.8
+listen-address=192.168.0.100
+no-poll
+addn-hosts=/etc/dnshost
+domain=ocp4.example.com
+resolv-file=/etc/resolv.conf
+address=/.apps.ocp4.example.com/192.168.0.101
+
+##DHCP Configuration
+#dhcp-range=ens192,192.168.0.100,192.168.0.150,255.255.255.0,4m
+#dhcp-option=option:router,192.168.0.1
+interface=ens192
+
+#dhcp-host=00:50:56:b4:fe:86,192.168.0.100
+
+--save--
+
+$ vi /etc/dnshost
+
+192.168.0.100 service.ocp4.example.com
+192.168.0.101 lb.ocp4.example.com
+
+192.168.0.102 master0.ocp4.example.com 
+192.168.0.103 master1.ocp4.example.com 
+192.168.0.104 master2.ocp4.example.com 
+
+192.168.0.105 worker0.ocp4.example.com
+192.168.0.106 worker0.ocp4.example.com
+
+192.168.0.107 bootstrap.ocp4.example.com
+
+192.168.0.101 api.ocp4.example.com
+192.168.0.101 api-int.ocp4.example.com
+
+$ systemctl restart dnsmasq
+$ systemctl status dnsmasq
+
+DNS Validation:
+===============
+
+$ nslookup api.ocp4.example.com
+$ nslookup api-int.ocp4.example.com
+$ nslookup j2c.apps.ocp4.example.com 
+
+$ nslookup master0.ocp4.example.com 
+$ nslookup master1.ocp4.example.com 
+$ nslookup master2.ocp4.example.com 
+$ nslookup worker0.ocp4.example.com 
+$ nslookup worker1.ocp4.example.com 
+$ nslookup bootstrap.ocp4.example.com 
