@@ -79,20 +79,23 @@ CMD: Runs a command when the container is started. This command is passed to the
 USER: Changes the active user within the container. Instructions that follow the USER instruction run as this user, including the CMD instruction. It is a good practice to define a different user other than root for security reasons.
 EXPOSE: Adds a port to the image metadata indicating that an application within the container binds to this port. This instruction does not bind the port on the host and is for documentation purposes.
 VOLUME: Defines where to store data outside of the container. The value configures the path where Podman mounts persistent volume inside of the container. You can define more than one path to create multiple volumes.
-
+...
 Example-1:
 # This is a comment line
-FROM        registry.redhat.io/ubi8/ubi:8.6
+FROM        registry.redhat.io/ubi8/ubi:latest
 LABEL       description="This is a custom httpd container image"
+User root
 RUN         yum install -y httpd
 EXPOSE      80
+RUN chgrp -R 0 /var/cache && \
+    chmod -R g=u /var/cache
 ENV         LogLevel "info"
 ADD         http://someserver.com/filename.pdf /var/www/html
-COPY        ./src/   /var/www/html/
-USER        apache
+COPY        index.html   /var/www/html/
+USER        root
 ENTRYPOINT  ["/usr/sbin/httpd"]
 CMD         ["-D", "FOREGROUND"]
-
+...
 
 $ mkdir podman
 $ echo 'hello world' >> podman/index.htlm
@@ -111,7 +114,7 @@ $ podman build -t my-first-image:v1.00 .
 $podman image ls
 $ podman run -itd --name server-1 -p 8080:80 my-first-image
 $ curl localhost:8080
-
+..............
 
 Example-2:
 
@@ -125,7 +128,7 @@ RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
 RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
 RUN yum -y  install httpd
 
-COPY index.html /var/www/html/
+COPY index.html $PATH
 
 EXPOSE $SERVER_PORT
 WORKDIR $PATH
