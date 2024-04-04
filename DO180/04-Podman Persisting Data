@@ -27,4 +27,13 @@ $ ls <above-path>
 
 $  
 
+....
+
+#Create Volume with your custom path 
+$ mkdir podman
+$ cd podman
+$ mkdir iso
+$ mkdir ignition
+$ podman volume create -o device=podman/httpd -o=o=bind podman-vol
+...
 
