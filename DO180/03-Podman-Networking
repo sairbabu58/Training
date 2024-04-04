@@ -53,4 +53,11 @@ $ podman stop server3
 $ podman network connect my-bridge --ip=192.168.0.150 server3
 $ podman start server3
 
+....
+
+Host IP, Host hostname and root access container.
+$ podman run -itd --net host --user root docker.io/library/nginx
+
+.....
+
 
